@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Order",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "invoiceNumber": {
+      "type": "biginteger",
+      "unique": true
+    },
+    "totalPrice": {
+      "type": "float"
+    },
+    "customerId": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::customer.customer"
+    }
+  }
+}
