@@ -1,25 +1,24 @@
-import { useState } from 'react'
 import './Assets/Styles/App.css'
+import 'react-toastify/dist/ReactToastify.css'
 import { useSelector } from 'react-redux'
 import { RootState } from './Store'
+import { MenuInterface } from './Interfaces/Components/index'
+import { ToastContainer } from 'react-toastify'
 
-import { Button } from './Components/Buttons'
-import Navs from './Components/Navs/index';
-import { MenuInterface } from './Interfaces/Components/index';
 import Cards from './Components/Cards'
-import Modals from './Components/Modals'
+import Navs from './Components/Navs/index'
+import Customers from './Screens/Customers'
 
 function App() {
 	const page = useSelector((state: RootState) => state.page.name)
-	const [isModalActive, setIsModalActive] = useState(false)
 	const menu: MenuInterface[] = [
 		{
 			name: 'Home',
-			component: <Button label='Home' color='success' rounded />
+			component: 'THIS IS HOME'
 		},
 		{
 			name: 'Customers',
-			component: 'This is Customers'
+			component: <Customers />
 		},
 		{
 			name: 'Travel Packages',
@@ -34,9 +33,11 @@ function App() {
 			component: 'This or Order Details'
 		},
 	]
+
 	return (
 		<>
 			<Navs menu={menu} />
+			{/* eslint-disable-next-line */}
 			{menu.map((item, index) => {
 				if (item.name === page) {
 					return (
@@ -46,6 +47,7 @@ function App() {
 					)
 				}
 			})}
+			<ToastContainer />
 		</>
 	)
 }

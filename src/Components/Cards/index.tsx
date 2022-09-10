@@ -8,6 +8,6 @@ export default function Cards({
     children
 }: Props) {
     return (
-        <div className='bg-gray-200 p-6 m-6'>{children}</div>
+        <div className='bg-gray-100 p-6 m-6 rounded shadow-lg'>{children}</div>
     )
 }

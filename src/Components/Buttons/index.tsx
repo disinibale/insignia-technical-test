@@ -1,10 +1,12 @@
 import React from 'react'
 
 type Props = {
-  label?: string,
+  label?: any,
   size?: string,
   color?: string,
   rounded?: boolean,
+  type?: any,
+  disabled?: boolean,
   onClick?: (e:any) => void
 }
 
@@ -13,6 +15,8 @@ export function Button({
   size = 'md',
   color = '',
   rounded = false,
+  type = 'button',
+  disabled = false,
   onClick
 }: Props) {
 
@@ -67,7 +71,9 @@ export function Button({
 
   return (
     <button
+      type={type}
       onClick={onClick}
+      disabled={disabled}
       className={`
       ${buttonColor(color)} 
       ${buttonSize(size)} 
